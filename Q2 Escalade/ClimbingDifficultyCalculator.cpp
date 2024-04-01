@@ -1,5 +1,5 @@
-// Nom, Matricule
-// Nom, Matricule
+/// Maltais, 20244617
+// Zhang, 20207461
 
 #include "ClimbingDifficultyCalculator.h"
 #include <fstream>
