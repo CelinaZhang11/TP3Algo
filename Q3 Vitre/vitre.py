@@ -30,6 +30,25 @@ def pure_maths(N, k):
 
     return last
 
+def minTrials(n, k):
+
+    # Initialize array of size (n+1) and m as moves.
+
+    dp = [0 for i in range(n+1)]
+
+    m = 0
+
+    while dp[n] < k:
+
+        m += 1
+
+        for x in range(n, 0, -1):
+
+            dp[x] += 1 + dp[x - 1]
+        
+    return m
+
+
 def dynamic(N, k, trucs):
 
     if(2**(k-1) >= N):
@@ -44,13 +63,25 @@ def dynamic(N, k, trucs):
     if(N == 3):
         return dynamic(N // 2, k, trucs + 1)
 
-    return max(dynamic((N // 2) - 1, k-1, trucs + 1), dynamic(N // 2, k, trucs + 1))
 
+    val1 = dynamic((N // 2) - 1, k-1, trucs + 1)
+    #Mirroir ne brise pas
+    val2 = dynamic(N // 2, k, trucs + 1)
+
+
+    #On essaie des splits differents
+    minSplit = max(val1,val2)
+
+    for i in range(3,N // 4):
+        minSplit = min(minSplit, max(dynamic((N // i) - 1, k-1, trucs + i - 1), dynamic(N // i, k, trucs + i-1)))
+
+
+    return min(max(val1,val2), minSplit)
 
 
 
 def vitre(N, k):
-    return dynamic(N, k, 0)
+    return dynamic(N,k,0)
 
 
 #Fonction main, vous ne devriez pas avoir à modifier
