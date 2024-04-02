@@ -17,7 +17,7 @@ ClimbingDifficultyCalculator::ClimbingDifficultyCalculator()
 {
 }
 
-int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(std::string filename)
+int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(string filename)
 {
     std::ifstream file(filename);
     std::string line;
