@@ -1,7 +1,7 @@
 // Maltais, 20244617
 // Zhang, 20207461
 
-//#include <vector>
+#include <vector>
 #include <string>
 
 // ce fichier contient les declarations des methodes de la classe ClimbingDifficultyCalculator
@@ -13,4 +13,10 @@ class ClimbingDifficultyCalculator{
     public :
         ClimbingDifficultyCalculator();
         int CalculateClimbingDifficulty(std::string);
+    private :
+        std::vector<std::vector<int>> wall;
+        std::vector<std::vector<int>> dp; // For memoization
+        int m, n; // Dimensions of the wall
+
+        int calculateMinCost(int r, int c); // Recursive helper function
 };

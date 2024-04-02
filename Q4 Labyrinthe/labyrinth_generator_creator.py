@@ -8,7 +8,7 @@ cell_size = 10 #mm
 wall_height = 10 #mm
 wall_thickness = 1 #mm
 
-strategy_choice = 2
+strategy_choice = 1
 tiles_amt = 13
 
 

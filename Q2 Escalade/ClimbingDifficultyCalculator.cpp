@@ -20,8 +20,7 @@ ClimbingDifficultyCalculator::ClimbingDifficultyCalculator()
 {
 }
 
-int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(string filename)
-{
+int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(std::string filename) {
     ifstream file("../Q2 Escalade/" + filename);
     if (!file) {
         cerr << "Failed to open file: " << filename << endl;
@@ -29,76 +28,141 @@ int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(string filename)
     }
 
     string line;
-    vector<vector<int>> wall; // Dynamic 2D array
-
     while (getline(file, line)) {
         istringstream iss(line);
         vector<int> row;
         string difficultyStr;
 
         while (getline(iss, difficultyStr, ',')) {
-            try {
-                int difficulty = stoi(difficultyStr); // Convert string to integer
-                row.push_back(difficulty);
-            } catch (const exception& e) {
-                cerr << "Error parsing integer from string \"" << difficultyStr << "\": " << e.what() << endl;
-                return -1;
-            }
+            row.push_back(std::stoi(difficultyStr));
         }
-        if (!row.empty()) {
-            wall.push_back(row);
-        }
+        wall.push_back(row);
     }
     file.close();
 
-    int m = wall.size();                                    // Number of rows
-    if (m == 0 || (m > 0 && wall[0].size() == 0)) {
-        cout << "Wall is empty or malformed." << endl;
-        return 0;
-    }
-    int n = wall[0].size();                                 // Number of columns
-
-    // Wall with only one row
-    if (m == 1) {
-        return *min_element(wall[0].begin(), wall[0].end());
-    }
-
-    // Wall with only one column
-    if (n == 1){
-        int sum = 0;
-        for (int i = 0; i < m; ++i) {
-            sum += wall[i][0];
+    // debugging
+    cout << "Wall Matrix:" << endl;
+    for (const auto& row : wall) {
+        for (int cell : row) {
+            cout << cell << " ";
         }
-        return sum;
+        cout << endl;
     }
 
-    vector<vector<int>> dp(m, vector<int>(n));
+    m = wall.size();
+    n = wall[0].size();
+    dp.assign(m, std::vector<int>(n, -1)); // Initialize memoization matrix
 
-    // Initialize bottom row of DP table
-    for (int j = 0; j < n; ++j) {
-        dp[m-1][j] = wall[m-1][j];
+    // Initialize the bottom row of dp with the bottom row of the wall matrix
+    for (int c = 0; c < n; ++c) {
+        dp[m-1][c] = wall[m-1][c];
     }
 
-    // Fill the DP table
-    for (int i = m-2; i >= 0; --i) {            // Start from the second to last row
-        for (int j = 0; j < n; ++j) {
-            int upCost = dp[i+1][j];                                                    // Cost from above
-            int leftCost = (j > 0) ? dp[i+1][j-1] : numeric_limits<int>::max();        // Left
-            int rightCost = (j < n-1) ? dp[i+1][j+1] : numeric_limits<int>::max();     // Right
+    int minCost = numeric_limits<int>::max();
+    for (int c = 0; c < n; ++c) {
+        minCost = min(minCost, calculateMinCost(0, c));
+    }
 
-            // Cost of the current cell itself (wall[i][j]) + the minimum of the three possible paths leading to it
-            dp[i][j] = wall[i][j] + min({upCost, leftCost, rightCost});
+    // debugging
+    cout << "DP Memo Matrix:" << endl;
+    for (const auto& row : dp) {
+        for (int cost : row) {
+            if (cost == numeric_limits<int>::max()) {
+                cout << "X "; // Use 'X' or a similar placeholder for uninitialized or max int values
+            } else {
+                cout << cost << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    return minCost;
+}
+
+void override_left(vector<int> row, vector<int> override_costs, int pos){
+    if(pos <= 0){
+        return;
+    }
+
+    if(row[pos] < override_costs[pos - 1]){
+        row[pos - 1] = row[pos - 1] - override_costs[pos - 1] + row[pos];
+        override_costs[pos - 1] = row[pos];
+        override_left(row, override_costs, pos);
+    }
+
+}
+
+int dingdong(int m) {
+
+    int r = 0;
+
+    int elements = dp[0].size();
+
+    vector<int> override_costs;
+    int curr = 0;
+    int will_try_override = 0;
+
+    while(dp.size() > 1){
+        vector<int> bottom = dp.pop();
+        curr = dp.size() -1; // Avant dernier row, donc en haut de bottom row.
+
+        for(int i=0; i<elements; i++){
+            //down
+            will_try_override = 0;
+            int down_cost = bottom_row[element];
+            int final_cost = down_cost;
+            
+            //left
+            if(i != 0){
+                
+                int left_cost = dp[curr][i - 1];
+                if( down_cost < left_cost){
+                    will_try_override = 1;
+                }
+                else{
+                    final_cost = left_cost;
+
+                }
+            
+            }
+            dp[curr][element] += final_cost; // dp[curr][element] = 52 ; final_cost = 30;
+            override_costs.push_back(final_cost);
+            if(will_try_override == 1){
+                override_left(dp[curr], override_costs, i);
+            }
+        }
+        override_costs.clear();
+    }
+
+    vector<int> bottom = dp.pop();
+    int curr_min = bottom[0];
+    for(int i = 0; i<bottom.size(); i++){
+        if(curr_min > bottom[i]){
+            curr_min = bottom[i];
         }
     }
 
-    // Debug (print populated dp)
-    cout << "DP Matrix:" << endl;
-    for (int i = 0; i < m; ++i) {
-        for (int j = 0; j < n; ++j) {
-            cout << dp[i][j] << " ";
-        }
-        cout << endl; // Newline at the end of each row for better readability
-    }
+    return curr_min; //Sol
+}
 
-    return *min_element(dp[0].begin(), dp[0].end());
+int ClimbingDifficultyCalculator::calculateMinCost(int r, int c) {
+    if (c < 0 || c >= n) return numeric_limits<int>::max(); // Out of bounds check for columns
+    if (r == m-1) return wall[r][c]; // Base case: bottom row
+
+    if (dp[r][c] != -1) return dp[r][c]; // Use memoized result if available
+
+    // Recursive calls to find minimum cost from cell directly below, left below, and right below
+    int downCost = calculateMinCost(r + 1, c);
+    int costLeft = c > 0 ? calculateMinCost(r + 1, c - 1) : numeric_limits<int>::max();
+    int costRight = c < n - 1 ? calculateMinCost(r + 1, c + 1) : numeric_limits<int>::max();
+
+    // Accumulate cost and memoize
+    dp[r][c] = wall[r][c] + min({downCost, costLeft, costRight});
+
+    // debugging
+    cout << "Calculating Min Cost for (" << r << ", " << c << "): "
+         << "DownCost: " << downCost << ", LeftCost: " << costLeft << ", RightCost: " << costRight
+         << ", Chosen Cost: " << dp[r][c] << endl;
+
+    return dp[r][c];
 }
