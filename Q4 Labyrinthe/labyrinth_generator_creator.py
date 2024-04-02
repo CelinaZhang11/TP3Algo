@@ -8,7 +8,7 @@ cell_size = 10 #mm
 wall_height = 10 #mm
 wall_thickness = 1 #mm
 
-strategy_choice = 1
+strategy_choice = 2
 tiles_amt = 13
 
 
@@ -20,7 +20,7 @@ class Strategy :
         print("Applying Abstract Strategy")
 
     def DoSomething(self):
-        print("Do Something")
+        pass
 
 class Algorithm1(Strategy) :
     def initialiser(self, ligne, d):
@@ -131,12 +131,99 @@ class Algorithm1(Strategy) :
         #             line += str(elem)
         #     print(line)
 
-
+#Random dfs
 class Algorithm2(Strategy) :
 
+
+    def not_visited_neighbors(self, visited, current):
+        not_visited = []
+        x = current[0]
+        y = current[1]
+        #Gauche
+        if(x - 1 >= 0):
+            if(not visited[x-1][y]):
+                not_visited.append("Gauche")
+        #Droite
+        if(x + 1 < len(visited)):
+            if(not visited[x+1][y]):
+                not_visited.append("Droite")
+        #Haut
+        if(y + 1 < len(visited)):
+            if(not visited[x][y + 1]):
+                not_visited.append("Haut")
+        #Bas
+        if(y - 1 >= 0):
+            if(not visited[x][y - 1]):
+                not_visited.append("Bas")
+
+        return not_visited
+
     def Apply(self, maze):
-        #super().Apply()
-        print("Applying Algorithm2")
+        visited = []
+        bottom_walls = []
+        right_walls = []
+        visited_stack = []
+        to_visit = -1
+        for _ in range(tiles_amt):
+            top_row = []
+            bottom_row = []
+            visited_row = []
+            for _ in range(tiles_amt):
+                visited_row.append(False)
+                to_visit += 1
+                bottom_row.append("_")
+                top_row.append("|")
+                
+            top_row.append("|")
+            visited.append(visited_row)
+            bottom_walls.append(top_row)
+            right_walls.append(bottom_row)
+
+        
+        visited[0][0] = True
+        visited_stack.append([0,0])
+
+        while(to_visit > 0):
+            curr = visited_stack.pop()
+            choices = self.not_visited_neighbors(visited, curr)
+            if(len(choices) == 0):
+                pass
+                    
+            else:
+                direction = random.choice(choices)
+                nextCell = [curr[0], curr[1]]
+                if direction == "Bas":
+                    bottom_walls[curr[0]][curr[1]] = " "
+                    nextCell[1] -= 1
+                elif direction == "Haut":
+                    bottom_walls[curr[0]][curr[1] + 1] = " "
+                    nextCell[1] += 1
+                elif direction == "Droite":
+                    right_walls[curr[0]][curr[1]] = " "
+                    nextCell[0] += 1
+                elif direction == "Gauche":
+                    right_walls[curr[0] - 1][curr[1]] = " "
+                    nextCell[0] -= 1
+                
+                to_visit -= 1
+                visited_stack.append(curr)
+                visited_stack.append(nextCell)
+                visited[nextCell[0]][nextCell[1]] = True
+
+        row = []
+        for _ in range(tiles_amt):
+            row.append("_")
+        maze.append(row)
+        
+
+        for i in range(len(bottom_walls)):
+            maze.append(right_walls[i])
+            maze.append(bottom_walls[i])
+        
+        maze[2].pop(0)
+        maze[2].insert(0," ")
+        maze[-1].pop()
+        maze[-1].append(" ")
 
 class Generator() :
     strategy = None
