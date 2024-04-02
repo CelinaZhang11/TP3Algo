@@ -9,14 +9,16 @@
 // this file contains the declarations of the methods of the ClimbingDifficultyCalculator class
 // can be modified if you wish to add other methods to the class
 
-class ClimbingDifficultyCalculator{
-    public :
-        ClimbingDifficultyCalculator();
-        int CalculateClimbingDifficulty(std::string);
-    private :
-        std::vector<std::vector<int>> wall;
-        std::vector<std::vector<int>> dp; // For memoization
-        int m, n; // Dimensions of the wall
+class ClimbingDifficultyCalculator
+{
+public:
+    ClimbingDifficultyCalculator();
+    int CalculateClimbingDifficulty(std::string);
 
-        int calculateMinCost(int r, int c); // Recursive helper function
+private:
+    std::vector<std::vector<int>> wall;
+    std::vector<std::vector<int>> dp; // For memoization
+    int m, n;                         // Dimensions of the wall
+
+    int calculateMinCost(int r, int c); // Recursive helper function
 };
