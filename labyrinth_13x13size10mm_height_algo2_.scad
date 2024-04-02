@@ -73,12 +73,17 @@
                     }
 
             
-                    translate([15.0,10,5.0]){
+                    translate([5.0,10,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([35.0,10,5.0]){
+                    translate([25.0,10,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([45.0,10,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -93,22 +98,17 @@
                     }
 
             
-                    translate([75.0,10,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([95.0,10,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([105.0,10,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([10,5.0,5.0]){
+                    translate([115.0,10,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([20,5.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -116,15 +116,7 @@
                     
 
             
-                    translate([50,5.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([120,5.0,5.0]){
+                    translate([80,5.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -140,7 +132,7 @@
                     
 
             
-                    translate([5.0,20,5.0]){
+                    translate([15.0,20,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -150,12 +142,17 @@
                     }
 
             
+                    translate([35.0,20,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
                     translate([45.0,20,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([75.0,20,5.0]){
+                    translate([55.0,20,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -170,21 +167,6 @@
                     }
 
             
-                    translate([105.0,20,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([115.0,20,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([125.0,20,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([0,15.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -193,7 +175,7 @@
                     
 
             
-                    translate([20,15.0,5.0]){
+                    translate([10,15.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -209,7 +191,15 @@
                     
 
             
-                    translate([60,15.0,5.0]){
+                    translate([70,15.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([80,15.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -218,6 +208,22 @@
 
             
                     translate([90,15.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([110,15.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([120,15.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -238,7 +244,12 @@
                     }
 
             
-                    translate([35.0,30,5.0]){
+                    translate([25.0,30,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([55.0,30,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -268,20 +279,7 @@
                     }
 
             
-                    translate([115.0,30,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([0,25.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([10,25.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -297,7 +295,7 @@
                     
 
             
-                    translate([50,25.0,5.0]){
+                    translate([70,25.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -305,7 +303,15 @@
                     
 
             
-                    translate([60,25.0,5.0]){
+                    translate([110,25.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([120,25.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -336,6 +342,11 @@
                     }
 
             
+                    translate([55.0,40,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
                     translate([75.0,40,5.0]){
                     cube([11,1,10], center=true);
                     }
@@ -351,6 +362,11 @@
                     }
 
             
+                    translate([105.0,40,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
                     translate([0,35.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -359,7 +375,7 @@
                     
 
             
-                    translate([20,35.0,5.0]){
+                    translate([10,35.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -367,7 +383,7 @@
                     
 
             
-                    translate([50,35.0,5.0]){
+                    translate([40,35.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -375,15 +391,7 @@
                     
 
             
-                    translate([60,35.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([110,35.0,5.0]){
+                    translate([120,35.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -399,6 +407,11 @@
                     
 
             
+                    translate([15.0,50,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
                     translate([35.0,50,5.0]){
                     cube([11,1,10], center=true);
                     }
@@ -409,12 +422,17 @@
                     }
 
             
-                    translate([75.0,50,5.0]){
+                    translate([55.0,50,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([95.0,50,5.0]){
+                    translate([65.0,50,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([85.0,50,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -424,20 +442,12 @@
                     }
 
             
-                    translate([125.0,50,5.0]){
+                    translate([115.0,50,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
                     translate([0,45.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([10,45.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -453,22 +463,6 @@
                     
 
             
-                    translate([50,45.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([60,45.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
                     translate([70,45.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -477,7 +471,7 @@
                     
 
             
-                    translate([110,45.0,5.0]){
+                    translate([100,45.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -501,27 +495,37 @@
                     
 
             
-                    translate([15.0,60,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([25.0,60,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([85.0,60,5.0]){
+                    translate([35.0,60,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([105.0,60,5.0]){
+                    translate([65.0,60,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([75.0,60,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([95.0,60,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
                     translate([115.0,60,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([125.0,60,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -542,7 +546,7 @@
                     
 
             
-                    translate([30,55.0,5.0]){
+                    translate([20,55.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -551,14 +555,6 @@
 
             
                     translate([50,55.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([60,55.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -590,11 +586,6 @@
                     
 
             
-                    translate([5.0,70,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([15.0,70,5.0]){
                     cube([11,1,10], center=true);
                     }
@@ -605,17 +596,7 @@
                     }
 
             
-                    translate([55.0,70,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([65.0,70,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([95.0,70,5.0]){
+                    translate([85.0,70,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -625,12 +606,15 @@
                     }
 
             
-                    translate([115.0,70,5.0]){
+                    translate([0,65.0,5.0]){
+                    rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
+                    }
+                    
 
             
-                    translate([0,65.0,5.0]){
+                    translate([10,65.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -646,7 +630,7 @@
                     
 
             
-                    translate([40,65.0,5.0]){
+                    translate([50,65.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -662,7 +646,7 @@
                     
 
             
-                    translate([70,65.0,5.0]){
+                    translate([80,65.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -670,7 +654,15 @@
                     
 
             
-                    translate([90,65.0,5.0]){
+                    translate([100,65.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([120,65.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -686,12 +678,32 @@
                     
 
             
+                    translate([5.0,80,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([35.0,80,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([55.0,80,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([65.0,80,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
                     translate([75.0,80,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([125.0,80,5.0]){
+                    translate([95.0,80,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -720,7 +732,7 @@
                     
 
             
-                    translate([40,75.0,5.0]){
+                    translate([50,75.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -729,14 +741,6 @@
 
             
                     translate([70,75.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([80,75.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -760,6 +764,14 @@
                     
 
             
+                    translate([120,75.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
                     translate([130,75.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -768,17 +780,22 @@
                     
 
             
-                    translate([15.0,90,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([45.0,90,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
                     translate([65.0,90,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([75.0,90,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([85.0,90,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -809,7 +826,7 @@
                     
 
             
-                    translate([30,85.0,5.0]){
+                    translate([20,85.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -825,31 +842,7 @@
                     
 
             
-                    translate([50,85.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([60,85.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
                     translate([80,85.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([90,85.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -886,32 +879,22 @@
                     }
 
             
-                    translate([35.0,100,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([45.0,100,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
                     translate([55.0,100,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([75.0,100,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([85.0,100,5.0]){
+                    translate([65.0,100,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
                     translate([95.0,100,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([105.0,100,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -937,6 +920,14 @@
                     
 
             
+                    translate([20,95.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
                     translate([30,95.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -945,7 +936,7 @@
                     
 
             
-                    translate([60,95.0,5.0]){
+                    translate([50,95.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -953,7 +944,7 @@
                     
 
             
-                    translate([70,95.0,5.0]){
+                    translate([80,95.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -961,15 +952,7 @@
                     
 
             
-                    translate([90,95.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
-                    translate([110,95.0,5.0]){
+                    translate([100,95.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -995,27 +978,22 @@
                     }
 
             
-                    translate([45.0,110,5.0]){
+                    translate([35.0,110,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([65.0,110,5.0]){
+                    translate([85.0,110,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
-                    translate([75.0,110,5.0]){
+                    translate([95.0,110,5.0]){
                     cube([11,1,10], center=true);
                     }
 
             
                     translate([105.0,110,5.0]){
-                    cube([11,1,10], center=true);
-                    }
-
-            
-                    translate([115.0,110,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -1036,7 +1014,23 @@
                     
 
             
-                    translate([30,105.0,5.0]){
+                    translate([40,105.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([50,105.0,5.0]){
+                    rotate([0,0,90]){
+                    cube([11,1,10], center=true);
+                    }
+                    }
+                    
+
+            
+                    translate([70,105.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -1052,7 +1046,7 @@
                     
 
             
-                    translate([100,105.0,5.0]){
+                    translate([120,105.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -1078,7 +1072,12 @@
                     }
 
             
-                    translate([55.0,120,5.0]){
+                    translate([45.0,120,5.0]){
+                    cube([11,1,10], center=true);
+                    }
+
+            
+                    translate([75.0,120,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -1093,7 +1092,7 @@
                     }
 
             
-                    translate([125.0,120,5.0]){
+                    translate([115.0,120,5.0]){
                     cube([11,1,10], center=true);
                     }
 
@@ -1114,14 +1113,6 @@
                     
 
             
-                    translate([40,115.0,5.0]){
-                    rotate([0,0,90]){
-                    cube([11,1,10], center=true);
-                    }
-                    }
-                    
-
-            
                     translate([50,115.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
@@ -1130,7 +1121,7 @@
                     
 
             
-                    translate([70,115.0,5.0]){
+                    translate([60,115.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }
@@ -1138,7 +1129,7 @@
                     
 
             
-                    translate([90,115.0,5.0]){
+                    translate([70,115.0,5.0]){
                     rotate([0,0,90]){
                     cube([11,1,10], center=true);
                     }

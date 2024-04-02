@@ -9,7 +9,7 @@ wall_height = 10 #mm
 wall_thickness = 1 #mm
 
 strategy_choice = 2
-tiles_amt = 13
+tiles_amt = 16
 
 
 class Strategy :
@@ -243,7 +243,7 @@ class Generator() :
 
 
 class Creator() :
-    file = "tgl.scad"
+    file = f"labyrinth_{tiles_amt}x{tiles_amt}size{wall_height}mm_height_algo{strategy_choice}_.scad"
     initialString = f"""
     // Labyrinth generated for openscad
     // IFT2125 - H24
