@@ -13,44 +13,43 @@ tiles_amt = 16
 
 
 class Strategy :
-    def __init__(self):
+    def __init__(self) :
         pass
 
-    def Apply(self, maze):
+    def Apply(self, maze) :
         print("Applying Abstract Strategy")
 
-    def DoSomething(self):
+    def DoSomething(self) :
         pass
 
 class Algorithm1(Strategy) :
-    def initialiser(self, ligne, d):
+    def initialiser(self, ligne, d) :
         i = 1
-        while(i < len(ligne)):
-            if ligne[i] == ' ':
+        while(i < len(ligne)) :
+            if ligne[i] == ' ' :
                 chiffre = 1
-                while(chiffre in d):
+                while(chiffre in d) :
                     chiffre += 1
                 ligne[i] = chiffre
                 d[chiffre] = 1
             i += 2
 
-    def placer_mur_cote(self, ligne, d):
-
+    def placer_mur_cote(self, ligne, d) :
         i = 1 
         prev = ' '
-        while(i < len(ligne)-3):
+        while(i < len(ligne)-3) :
             choice = random.choice([True, False])
-            if ligne[i] == ligne[i + 2]:
+            if ligne[i] == ligne[i + 2] :
                 ligne[i + 1] = '|'
-            else:
-                if choice:
+            else :
+                if choice :
                     d[ligne[i]] += 1
                     d[ligne[i + 2]] -= 1
-                    if(d[ligne[i+ 2]] == 0):
+                    if(d[ligne[i+ 2]] == 0) :
                         del d[ligne[i+ 2]]
                     ligne[i + 2] = ligne[i]
                     ligne[i + 1] = ' '
-                else:
+                else :
                     ligne[i + 1] = '|'
             i += 2
 
@@ -58,27 +57,27 @@ class Algorithm1(Strategy) :
         dessous = []
         i = 1
 
-        while(i < len(ligne)):
-            if(d[ligne[i]] == 1):
+        while(i < len(ligne)) :
+            if(d[ligne[i]] == 1) :
                 dessous.append(" ")
-            else:
+            else :
                 choice = random.choice([True, False])
-                if choice:
+                if choice :
                     dessous.append("_")
                     d[ligne[i]] -= 1
                     ligne[i] = " "
-                else:
+                else :
                     dessous.append(" ")
             i += 2
         
         maze.append(dessous)
         maze.append(maze[-2].copy())
 
-    def Apply(self, maze):
-        #super().Apply()
+    def Apply(self, maze) :
+        # super().Apply()
         # maze.append("|")
         row = []
-        for _ in range(tiles_amt):
+        for _ in range(tiles_amt) :
             row.append("_")
         maze.append(row)
         
@@ -90,7 +89,7 @@ class Algorithm1(Strategy) :
         maze.append(row)
 
         d = {}
-        # Pour que ce soit carrés
+        # pour que ce soit carré
         for _ in range(tiles_amt):
             
             self.initialiser(maze[-1], d)
@@ -100,13 +99,13 @@ class Algorithm1(Strategy) :
         maze.pop()
         maze.pop()
         row = []
-        for _ in range(tiles_amt):
+        for _ in range(tiles_amt) :
             row.append("_")
         maze.append(row)
 
-        for i in range(1, len(maze), 2):
+        for i in range(1, len(maze), 2) :
             newRow = []
-            for elem in range(0, len(maze[i]), 2):
+            for elem in range(0, len(maze[i]), 2) :
                 newRow.append(maze[i][elem])
 
             maze[i] = newRow
@@ -131,44 +130,44 @@ class Algorithm1(Strategy) :
         #             line += str(elem)
         #     print(line)
 
-#Random dfs
+# random dfs
 class Algorithm2(Strategy) :
 
 
-    def not_visited_neighbors(self, visited, current):
+    def not_visited_neighbors(self, visited, current) :
         not_visited = []
         x = current[0]
         y = current[1]
-        #Gauche
-        if(x - 1 >= 0):
-            if(not visited[x-1][y]):
+        # gauche
+        if(x - 1 >= 0) :
+            if(not visited[x-1][y]) :
                 not_visited.append("Gauche")
-        #Droite
-        if(x + 1 < len(visited)):
+        # droite
+        if(x + 1 < len(visited)) :
             if(not visited[x+1][y]):
                 not_visited.append("Droite")
-        #Haut
-        if(y + 1 < len(visited)):
+        # haut
+        if(y + 1 < len(visited)) :
             if(not visited[x][y + 1]):
                 not_visited.append("Haut")
-        #Bas
-        if(y - 1 >= 0):
+        # bas
+        if(y - 1 >= 0) :
             if(not visited[x][y - 1]):
                 not_visited.append("Bas")
 
         return not_visited
 
-    def Apply(self, maze):
+    def Apply(self, maze) :
         visited = []
         bottom_walls = []
         right_walls = []
         visited_stack = []
         to_visit = -1
-        for _ in range(tiles_amt):
+        for _ in range(tiles_amt) :
             top_row = []
             bottom_row = []
             visited_row = []
-            for _ in range(tiles_amt):
+            for _ in range(tiles_amt) :
                 visited_row.append(False)
                 to_visit += 1
                 bottom_row.append("_")
@@ -179,29 +178,28 @@ class Algorithm2(Strategy) :
             bottom_walls.append(top_row)
             right_walls.append(bottom_row)
 
-        
         visited[0][0] = True
         visited_stack.append([0,0])
 
-        while(to_visit > 0):
+        while(to_visit > 0) :
             curr = visited_stack.pop()
             choices = self.not_visited_neighbors(visited, curr)
-            if(len(choices) == 0):
+            if(len(choices) == 0) :
                 pass
                     
-            else:
+            else :
                 direction = random.choice(choices)
                 nextCell = [curr[0], curr[1]]
-                if direction == "Bas":
+                if direction == "Bas" :
                     bottom_walls[curr[0]][curr[1]] = " "
                     nextCell[1] -= 1
-                elif direction == "Haut":
+                elif direction == "Haut" :
                     bottom_walls[curr[0]][curr[1] + 1] = " "
                     nextCell[1] += 1
-                elif direction == "Droite":
+                elif direction == "Droite" :
                     right_walls[curr[0]][curr[1]] = " "
                     nextCell[0] += 1
-                elif direction == "Gauche":
+                elif direction == "Gauche" :
                     right_walls[curr[0] - 1][curr[1]] = " "
                     nextCell[0] -= 1
                 
@@ -229,18 +227,16 @@ class Generator() :
     strategy = None
     labyrinthe = []
 
-    def __init__(self):
+    def __init__(self) :
         pass
 
-    def SetStrategy(self, new_strategy):
+    def SetStrategy(self, new_strategy) :
         self.strategy = new_strategy
 
     def Generate(self):
         self.strategy.Apply(self.labyrinthe)
         self.strategy.DoSomething()
         return self.labyrinthe
-
-
 
 class Creator() :
     file = f"labyrinth_{tiles_amt}x{tiles_amt}size{wall_height}mm_height_algo{strategy_choice}_.scad"
