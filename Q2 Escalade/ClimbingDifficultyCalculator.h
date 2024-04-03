@@ -17,8 +17,5 @@ public:
 
 private:
     std::vector<std::vector<int>> wall;
-    std::vector<std::vector<int>> dp; // For memoization
-    int m, n;                         // Dimensions of the wall
-
-    int calculateMinCost(int r, int c); // Recursive helper function
+    std::vector<std::vector<int>> dp; 
 };

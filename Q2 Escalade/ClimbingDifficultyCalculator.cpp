@@ -26,21 +26,6 @@ void override_left(vector<int> row, vector<int> override_costs, int pos)
     cout << "Failed to go left" << row[pos - 1] << endl;
 }
 
-void print_wall(vector<vector<int>> wall)
-{
-    // debugging
-    std::cout << "Wall Matrix:"
-              << "TestTest" << endl;
-    for (const auto &row : wall)
-    {
-        for (int cell : row)
-        {
-            std::cout << cell << " ";
-        }
-        std::cout << endl;
-    }
-}
-
 int dingdong(int m, std::vector<vector<int>> wall2)
 {
 
@@ -57,16 +42,16 @@ int dingdong(int m, std::vector<vector<int>> wall2)
         vector<int> bottom_row = wall2[wall2.size() - 1];
         wall2.pop_back();
 
-        curr = wall2.size() - 1; // Avant dernier row, donc en haut de bottom row.
+        curr = wall2.size() - 1;                                    // Avant dernier row, donc en haut de bottom row
 
         for (int i = 0; i < elements; i++)
         {
-            // down
+            // Down
             will_try_override = 0;
             int down_cost = bottom_row[i];
             int final_cost = down_cost;
 
-            // left
+            // Left
             if (i != 0)
             {
                 int left_cost = wall2[curr][i - 1];
@@ -79,7 +64,8 @@ int dingdong(int m, std::vector<vector<int>> wall2)
                     final_cost = left_cost;
                 }
             }
-            wall2[curr][i] += final_cost; // wall2[curr][element] = 52 ; final_cost = 30;
+
+            wall2[curr][i] += final_cost;                           // wall2[curr][element] = 52 ; final_cost = 30;
             override_costs.push_back(final_cost);
             if (will_try_override == 1)
             {
@@ -99,7 +85,6 @@ int dingdong(int m, std::vector<vector<int>> wall2)
                 }
             }
         }
-        // print_wall(wall2);
         override_costs.clear();
     }
 
@@ -114,7 +99,7 @@ int dingdong(int m, std::vector<vector<int>> wall2)
         }
     }
 
-    return curr_min; // Sol
+    return curr_min;                                               // Solution
 }
 
 int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(std::string filename)
@@ -141,17 +126,6 @@ int ClimbingDifficultyCalculator::CalculateClimbingDifficulty(std::string filena
         wall.push_back(row);
     }
     file.close();
-
-    // debugging
-    // cout << "Wall Matrix:" << endl;
-    // for (const auto &row : wall)
-    // {
-    //     for (int cell : row)
-    //     {
-    //         cout << cell << " ";
-    //     }
-    //     cout << endl;
-    // }
 
     return dingdong(0, wall);
 }
